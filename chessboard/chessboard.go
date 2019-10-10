@@ -107,9 +107,9 @@ func (q *BoardSquareQueue) Dequeue() (BoardSquare, error) {
 	if size == 0 {
 		return BoardSquare{}, errors.New("Empty Queue")
 	}
-	nextInt := q.items[size-1]
+	nextBoardSquare := q.items[size-1]
 	q.items = q.items[:size-1]
-	return nextInt, nil
+	return nextBoardSquare, nil
 }
 
 func (q *BoardSquareQueue) IsEmpty() bool {
