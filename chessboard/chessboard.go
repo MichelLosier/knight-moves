@@ -120,7 +120,9 @@ func (q *BoardSquareQueue) Size() int {
 	return len(q.items)
 }
 
-func FindShortestKnightPath(searchQueue *BoardSquareQueue, targetSquare BoardSquare) []*BoardSquare {
+func FindShortestKnightPath(startingSquare BoardSquare, targetSquare BoardSquare) []*BoardSquare {
+	var searchQueue BoardSquareQueue
+	searchQueue.Enqueue(startingSquare)
 	path := []*BoardSquare{}
 
 	for !searchQueue.IsEmpty() {

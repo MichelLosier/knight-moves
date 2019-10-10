@@ -21,7 +21,6 @@ func main() {
 
 	parsedArgs = parseArguments(rawArgs)
 
-	var searchQueue chessboard.BoardSquareQueue
 	bDomain := []int{0, 8}
 	bRange := []int{0, 8}
 
@@ -30,9 +29,8 @@ func main() {
 
 	startingSquare, _ := chessboard.NewBoardSquareFromString(parsedArgs[0], &board)
 	targetSquare, _ := chessboard.NewBoardSquareFromString(parsedArgs[1], &board)
-	searchQueue.Enqueue(startingSquare)
 
-	path := chessboard.FindShortestKnightPath(&searchQueue, targetSquare)
+	path := chessboard.FindShortestKnightPath(startingSquare, targetSquare)
 	printPath(path)
 
 }
